@@ -4,25 +4,16 @@
   den.aspects.dustvoice = {
     includes = [
       den._.primary-user
+      den.aspects.nushell
       (den._.user-shell "nushell")
     ];
 
     homeManager =
       { pkgs, ... }:
       {
-        home.packages = [ pkgs.helix ];
-
-        programs.git = {
-          enable = true;
-          settings = {
-            user = {
-              name = "DustVoice";
-              email = "info@dustvoice.de";
-            };
-
-            init.defaultBranch = "main";
-          };
-        };       
+        home.packages = [
+          pkgs.helix
+        ];
       };
 
     # user can provide NixOS configurations
