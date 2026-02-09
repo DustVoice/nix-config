@@ -1,19 +1,24 @@
 # defines all hosts + users + homes.
 # then config their aspects in as many files you want
 {
-  # tux user at igloo host.
-  den.hosts.x86_64-linux.igloo.users.tux = { };
+  # dustvoice user at wsl-home host.
+  den.hosts.x86_64-linux = {
+    wsl-home = {
+      description = "WSL on my home machine";
+      users.dustvoice = { };
 
-  # define an standalone home-manager for tux
-  # den.homes.x86_64-linux.tux = { };
+      wsl = { };
+    };
+  };
 
-  # be sure to add nix-darwin input for this:
-  # den.hosts.aarch64-darwin.apple.users.alice = { };
+  # define an standalone home-manager for dustvoice
+  den.homes.x86_64-linux.dustvoice = { };
 
-  # other hosts can also have user tux.
-  # den.hosts.x86_64-linux.south = {
-  #   wsl = { }; # add nixos-wsl input for this.
-  #   users.tux = { };
-  #   users.orca = { };
-  # };
+  flake-file.inputs = {
+    nixos-wsl = {
+      url = "github:nix-community/nixos-wsl";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "";
+    };
+  };
 }
