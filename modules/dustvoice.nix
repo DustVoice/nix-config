@@ -4,8 +4,8 @@
   den.aspects.dustvoice = {
     includes = [
       den._.primary-user
-      den.aspects.nushell
-      (den._.user-shell "nushell")
+      # (den._.user-shell "nushell")
+      den.aspects.shell._.nushell
     ];
 
     homeManager =

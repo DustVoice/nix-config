@@ -1,11 +1,9 @@
 { den, pkgs, config, ... }:
 {
   den.default = {
-    includes = [
-      den.aspects.hostname
-      den.aspects.git
-    ];
-      
+    nixos.system.stateVersion = "25.05";
+    homeManager.home.stateVersion = "25.05";
+    
     nix = {
       settings = {
         experimental-features = [
@@ -17,16 +15,23 @@
           "@wheel"
         ];
       };
+
       gc = pkgs.lib.optionalAttrs config.nix.enable {
         automatic = true;
         options = "--delete-older-than 7d";
       };
     };
-    
-    homeManager = {
-      programs = {
-        vim.enable = true;
-      };
-    };
   };
+
+  den.default.includes = [
+    den._.home-manager
+    den._.define-user
+
+    (den.lib.take.exactly (
+      { OS, host }:
+      den.lib.take.unused OS {
+        ${host.class}.networking.hostName = host.hostName;
+      }
+    ))
+  ];
 }
