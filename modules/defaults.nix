@@ -1,9 +1,6 @@
 { den, pkgs, config, ... }:
 {
   den.default = {
-    nixos.system.stateVersion = "25.05";
-    homeManager.home.stateVersion = "25.05";
-    
     nix = {
       settings = {
         experimental-features = [
@@ -33,5 +30,10 @@
         ${host.class}.networking.hostName = host.hostName;
       }
     ))
+
+    {
+      nixos.system.stateVersion = "25.05";
+      homeManager.home.stateVersion = "25.05";
+    }
   ];
 }

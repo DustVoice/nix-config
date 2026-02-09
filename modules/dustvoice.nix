@@ -4,7 +4,7 @@
   den.aspects.dustvoice = {
     includes = [
       den._.primary-user
-      # (den._.user-shell "nushell")
+      (den._.user-shell "fish")
       den.aspects.shell._.nushell
     ];
 

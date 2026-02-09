@@ -5,9 +5,11 @@
   den.hosts.x86_64-linux = {
     wsl-home = {
       description = "WSL on my home machine";
-      users.dustvoice = { };
-
       wsl = { };
+      
+      users = {
+        dustvoice = { };
+      };
     };
   };
 
