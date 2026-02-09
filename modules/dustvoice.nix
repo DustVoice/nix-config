@@ -13,6 +13,7 @@
       {
         home.packages = [
           pkgs.helix
+          pkgs.jujutsu
         ];
       };
 
