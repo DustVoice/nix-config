@@ -28,8 +28,14 @@ where `hostname` corresponds to a hostname defined in `modules/my/hosts.nix`.
 To utilize the standalone home-manager configurations defined in `modules/my/hosts.nix` on non-NixOS systems:
 
 1. First [install Nix (the Package Manager)](https://nixos.org/download)
-2. `nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager`
-3. `nix-channel --update`
-4. `home-manager --extra-experimental-features "nix-command flakes" --flake github:DustVoice/nix-config#username switch`
+2. ```console
+   nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+   ```
+3. ```console
+   nix-channel --update`
+   ```
+4. ```console
+   home-manager --extra-experimental-features "nix-command flakes" --flake github:DustVoice/nix-config#username switch
+   ```
 
 where `username` corresponds to a username for which a standalone home-manager config has been defined in `modules/my/hosts.nix`
