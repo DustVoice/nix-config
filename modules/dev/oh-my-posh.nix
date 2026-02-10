@@ -1,11 +1,15 @@
 {
-  dev.oh-my-posh.homeManager = {
-    home.file.".config/oh-my-posh/config.yaml".source = ./dots/dustvoice.omp.yaml;
+  dev.oh-my-posh.homeManager =
+    { config, ... }:
+    {
+      home.file.".config/oh-my-posh/dustvoice.omp.yaml".source = ./dots/dustvoice.omp.yaml;
     
-    programs.oh-my-posh = {
-      enable = true;
+      programs.oh-my-posh = {
+        enable = true;
 
-      enableFishIntegration = true;
+        configFile = "${config.home.homeDirectory}/.config/oh-my-posh/dustvoice.omp.yaml";
+      
+        enableFishIntegration = true;
+      };
     };
-  };
 }
