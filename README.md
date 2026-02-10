@@ -40,4 +40,4 @@ To utilize the standalone home-manager configurations defined in `modules/my/hos
    home-manager --extra-experimental-features "nix-command flakes" --flake github:DustVoice/nix-config#username switch
    ```
 
-where `username` corresponds to a username for which a standalone home-manager config has been defined in `modules/my/hosts.nix`
+   where `username` corresponds to a username for which a standalone home-manager config has been defined in `modules/my/hosts.nix`
