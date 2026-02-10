@@ -23,6 +23,39 @@ sudo nixos-rebuild switch --flake github:DustVoice/nix-config#hostname
 
 where `hostname` corresponds to a hostname defined in `modules/my/hosts.nix`.
 
+### WSL
+
+As I normally use my own username instead of the default `nixos` user used by the NixOS-WSL image,
+special care is needed when bootstrapping (and therefore changing the default user) on WSL.
+
+According to the [NixOS-WSL documentation](https://nix-community.github.io/NixOS-WSL/how-to/change-username.html),
+you'd need to
+
+1. Rebuild the `boot` instead of directly `switch`ing to it
+
+   ```console
+   sudo nixos-rebuild boot --flake github:DustVoice/nix-config#hostname
+   ```
+2. Exit the WSL shell and terminate the distro
+
+   ```ps
+   wsl.exe -t NixOS
+   ```
+3. Start a shell as the `root` user and immediately exit, applying the new generation
+
+   ```ps
+   wsl.exe -d NixOS --user root exit
+   ```
+4. Stop the distro again
+
+   ```ps
+   wsl.exe -t NixOS
+   ```
+5. Finally open a WSL shell with (hopefully) everything applied.
+
+   **NOTE:** This doesn't transfer any files from the
+   `nixos` user's home directory to the newly created user!
+
 ### Proxy
 
 When bootstrapping behind a proxy, some intermediate steps become necessary.
