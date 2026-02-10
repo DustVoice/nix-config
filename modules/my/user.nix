@@ -16,6 +16,7 @@
         <dev/helix>
         <dev/jujutsu>
         <dev/nushell>
+        <dev/oh-my-posh>
         # <dev/secrets>
         <dev/terminals>
         <dev/zellij>

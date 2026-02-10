@@ -9,14 +9,30 @@
       pkgs.jjui
     ];
 
+    programs = {
+      helix.enable = true;
+      difftastic.enable = true;
+    };
+
     programs.jujutsu = {
       enable = true;
 
       settings = {
-        user.name = "DustVoice";
-        user.email = "info@dustvoice.de";
+        user = {
+          name = "DustVoice";
+          email = "info@dustvoice.de";
+        };
 
-        revsets.log = "default()";
+        ui = {
+          editor = "hx";
+
+          default-command = "log";
+          
+          diff-editor = ":builtin";
+          diff-formatter = ["difft" "--color=always" "$left" "$right"];
+
+          show-cryptographic-signatures = true;
+        };
       };
     };
   };
