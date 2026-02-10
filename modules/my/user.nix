@@ -18,6 +18,7 @@
         <dev/nushell>
         # <dev/secrets>
         <dev/terminals>
+        <dev/zellij>
       ];
     };
   };
