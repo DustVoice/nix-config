@@ -9,9 +9,11 @@
   };
 
   my.device.provides = {
-    base.includes = [
-      <nix-config/system>
-    ];
+    base.nixos =
+      { pkgs, ... }:
+      {
+        environment.systemPackages = [ pkgs.git pkgs.vim ];
+      };
 
     wsl.nixos = {
       imports = [
