@@ -23,6 +23,29 @@ sudo nixos-rebuild switch --flake github:DustVoice/nix-config#hostname
 
 where `hostname` corresponds to a hostname defined in `modules/my/hosts.nix`.
 
+### Proxy
+
+When bootstrapping behind a proxy, some intermediate steps become necessary.
+Although the correct proxy configuration should be present for the specific hostname,
+bootstrapping the system for the first time requires some temporary environment modifications:
+
+```console
+proxy_url="http://user:password@proxy:port/"
+export http_proxy="$proxy_url"
+export https_proxy="$proxy_url"
+export HTTP_PROXY="$proxy_url"
+export HTTPS_PROXY="$proxy_url"
+export CURL_NIX_FLAGS="-x $proxy_url"
+```
+
+Unfortunately there is only a limited set of environment variables which get copied over by `sudo`!
+This might be wise from a security standpoint but is annoying in this case.
+To circumvent this, add `--preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY` as an argument to sudo:
+
+```console
+sudo --preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY,CURL_NIX_FLAGS nixos-rebuild switch --flake github:DustVoice/nix-config#hostname
+```
+
 ## Bootstrap on Generic Linux
 
 To utilize the standalone home-manager configurations defined in `modules/my/hosts.nix` on non-NixOS systems:
