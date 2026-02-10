@@ -38,17 +38,17 @@ you'd need to
    ```
 2. Exit the WSL shell and terminate the distro
 
-   ```ps
+   ```powershell
    wsl.exe -t NixOS
    ```
 3. Start a shell as the `root` user and immediately exit, applying the new generation
 
-   ```ps
+   ```powershell
    wsl.exe -d NixOS --user root exit
    ```
 4. Stop the distro again
 
-   ```ps
+   ```powershell
    wsl.exe -t NixOS
    ```
 5. Finally open a WSL shell with (hopefully) everything applied.
