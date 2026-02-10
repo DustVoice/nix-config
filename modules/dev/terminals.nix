@@ -1,5 +1,5 @@
 {
-  dust.terminals.homeManager =
+  dev.terminals.homeManager =
     { pkgs, ... }:
     {
       home.packages = [

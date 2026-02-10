@@ -1,5 +1,5 @@
 {
-  dust.helix.homeManager = {
+  dev.helix.homeManager = {
     programs.helix = {
       enable = true;
 

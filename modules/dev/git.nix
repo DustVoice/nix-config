@@ -1,5 +1,5 @@
 {
-  dust.git.homeManager = {
+  dev.git.homeManager = {
     programs.git = {
       enable = true;
       settings = {

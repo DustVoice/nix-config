@@ -1,5 +1,5 @@
 {
-  dust.cli-tui = {
+  dev.cli-tui = {
     homeManager =
       { pkgs, ... }:
       {

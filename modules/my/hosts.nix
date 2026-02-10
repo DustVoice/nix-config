@@ -6,16 +6,16 @@
       wsl = { };
       
       users = {
-        dustvoice.aspect = "dustvoice";
+        dustvoice = { };
       };
     };
   };
 
   # define an standalone home-manager for dustvoice
-  den.homes.x86_64-linux.dustvoice.aspect = "dustvoice";
+  den.homes.x86_64-linux.dustvoice = { };
   
   den.aspects = {
-    dustvoice.includes = [ <my/user> ];
+    dustvoice.includes = [ <my/user/dustvoice> ];
 
     wsl-home.includes = [ <my/device/wsl-home> ];
   };

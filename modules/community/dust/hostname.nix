@@ -1,5 +1,5 @@
 {
-  nix-config.hostname = { host, ... }: {
+  dust.hostname = { host, ... }: {
     ${host.class}.networking.hostName = host.hostName;
   };
 }

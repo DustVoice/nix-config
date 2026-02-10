@@ -1,10 +1,10 @@
 let
-  dust.direnv.homeManager = {
+  dev.direnv.homeManager = {
     programs.direnv.enable = true;
     programs.direnv.nix-direnv.enable = true;
   };
 
 in
 {
-  inherit dust;
+  inherit dev;
 }

@@ -1,5 +1,5 @@
 {
-  dust.ghostty.homeManager = {
+  dev.ghostty.homeManager = {
     programs.ghostty = {
       enable = true;
 

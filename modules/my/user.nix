@@ -1,21 +1,23 @@
 { __findFile, ... }:
 {
-  my.user = <den.lib.parametric> {
-    includes = [
-      <den/primary-user>
-      (<den/user-shell> "fish")
+  my.user.provides = {
+    dustvoice = <den.lib.parametric> {
+      includes = [
+        <den/primary-user>
+        (<den/user-shell> "fish")
 
-      <dust/cli-tui>
-      <dust/direnv>
-      <dust/editors>
-      <dust/fish>
-      <dust/git>
-      <dust/ghostty>
-      <dust/helix>
-      <dust/jujutsu>
-      <dust/nushell>
-      # <dust/secrets>
-      <dust/terminals>
-    ];
+        <dev/cli-tui>
+        <dev/direnv>
+        <dev/editors>
+        <dev/fish>
+        <dev/git>
+        <dev/ghostty>
+        <dev/helix>
+        <dev/jujutsu>
+        <dev/nushell>
+        # <dev/secrets>
+        <dev/terminals>
+      ];
+    };
   };
 }

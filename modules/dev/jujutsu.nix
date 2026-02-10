@@ -1,7 +1,7 @@
 {
   flake-file.inputs.jjui.url = "github:idursun/jjui";
 
-  dust.jujutsu.homeManager =
+  dev.jujutsu.homeManager =
     { pkgs, ... }:
     {
     home.packages = [

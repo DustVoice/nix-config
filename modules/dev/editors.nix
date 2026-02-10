@@ -1,5 +1,5 @@
 {
-  dust.editors = {
+  dev.editors = {
     homeManager =
       { pkgs, ... }:
       {

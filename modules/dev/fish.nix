@@ -1,5 +1,5 @@
 {
-  dust.fish.homeManager = {
+  dev.fish.homeManager = {
     programs.fzf = {
       enable = true;
       enableFishIntegration = true;
