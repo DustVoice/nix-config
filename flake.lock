@@ -2,11 +2,11 @@
   "nodes": {
     "den": {
       "locked": {
-        "lastModified": 1770569341,
-        "narHash": "sha256-IPUUtbuJpJo4uenHtP0b56NfZNGkmb3EywC/O5dHNPM=",
+        "lastModified": 1770703778,
+        "narHash": "sha256-NrHKezCXXrLJzKT5TV9CUv0M/KdXWfhu3yK06SQUW8g=",
         "owner": "vic",
         "repo": "den",
-        "rev": "5c3b12a1c88498350e20755bad7f64725aeeb690",
+        "rev": "1c8fc94ed9f1b753038c740d74adca831247124c",
         "type": "github"
       },
       "original": {

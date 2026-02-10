@@ -5,7 +5,12 @@ let
 
     ## Usage
 
-    (<dust/proxy> proxy noProxy)
+    (<nix-config/proxy>
+      {
+        proxy = "http://user:password@proxy:port/";
+        noProxy = "127.0.0.1,localhost,internal.domain";
+      }
+    )
 
     where
 
@@ -14,7 +19,7 @@ let
   '';
 in
 {
-  dust.proxy =
+  nix-config.proxy =
     { proxy, noProxy ? "127.0.0.1,localhost,internal.domain" }:
     {
       inherit description;

@@ -4,6 +4,6 @@
     <den/define-user>
     <my/nix-settings>
     <my/state-version>
-    <dust/hostname>
+    <nix-config/hostname>
   ];
 }
