@@ -1,5 +1,5 @@
 {
-  dustvoice.nushell.homeManager = {
+  dust.nushell.homeManager = {
     programs.nushell = {
       enable = true;
     };

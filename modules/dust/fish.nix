@@ -1,5 +1,5 @@
 {
-  dustvoice.fish.homeManager = {
+  dust.fish.homeManager = {
     programs.fzf = {
       enable = true;
       enableFishIntegration = true;

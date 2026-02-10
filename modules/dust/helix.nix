@@ -1,5 +1,5 @@
 {
-  dustvoice.helix.homeManager = {
+  dust.helix.homeManager = {
     programs.helix = {
       enable = true;
 

@@ -4,6 +4,6 @@
     <den/define-user>
     <my/nix-settings>
     <my/state-version>
-    <vix/hostname>
+    <nix-config/hostname>
   ];
 }

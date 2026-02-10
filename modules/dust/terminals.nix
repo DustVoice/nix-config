@@ -1,5 +1,5 @@
 {
-  dustvoice.terminals.homeManager =
+  dust.terminals.homeManager =
     { pkgs, ... }:
     {
       home.packages = [

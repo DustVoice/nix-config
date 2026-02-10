@@ -5,17 +5,17 @@
       <den/primary-user>
       (<den/user-shell> "fish")
 
-      <dustvoice/cli-tui>
-      <dustvoice/direnv>
-      <dustvoice/editors>
-      <dustvoice/fish>
-      <dustvoice/git>
-      <dustvoice/ghostty>
-      <dustvoice/helix>
-      <dustvoice/jujutsu>
-      <dustvoice/nushell>
-      # <dustvoice/secrets>
-      <dustvoice/terminals>
+      <dust/cli-tui>
+      <dust/direnv>
+      <dust/editors>
+      <dust/fish>
+      <dust/git>
+      <dust/ghostty>
+      <dust/helix>
+      <dust/jujutsu>
+      <dust/nushell>
+      # <dust/secrets>
+      <dust/terminals>
     ];
   };
 }

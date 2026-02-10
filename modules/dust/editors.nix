@@ -1,6 +1,5 @@
-{ __findFile, ... }:
 {
-  dustvoice.editors = {
+  dust.editors = {
     homeManager =
       { pkgs, ... }:
       {

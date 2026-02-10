@@ -1,7 +1,9 @@
 {
   flake-file.inputs.jjui.url = "github:idursun/jjui";
 
-  dustvoice.jujutsu.homeManager = {
+  dust.jujutsu.homeManager =
+    { pkgs, ... }:
+    {
     home.packages = [
       pkgs.lazyjj
       pkgs.jj-fzf

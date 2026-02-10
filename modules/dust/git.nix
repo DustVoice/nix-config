@@ -1,11 +1,11 @@
 {
-  dustvoice.git.homeManager = {
+  dust.git.homeManager = {
     programs.git = {
       enable = true;
-      userName = "DustVoice";
-      userEmail = "info@dustvoice.de";
-
       settings = {
+        user.name = "DustVoice";
+        user.email  = "info@dustvoice.de";
+
         init.defaultBranch = "main";
       };
     };
