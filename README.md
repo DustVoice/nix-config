@@ -3,7 +3,7 @@
 This is my [dendritic](https://dendrix.oeiuwq.com/Dendritic.html) Nix(OS) & Home-Manager configuration.
 _Nix besonderes!_
 
-It utilizes [Den](), a framework for:
+It utilizes framework called [Den](https://github.com/vic/den):
 > Modular, context-aware and aspect-oriented dendritic Nix configurations
 
 After getting familiar with the dendritic approach compared to a more "traditional" flake setup
@@ -18,7 +18,7 @@ the syntax, or even just flakes, I'd recommend a simpler approach at first.
 To bootstrap a (predefined!) device, simply use
 
 ```console
-sudo nixos-rebuild switch --flake github:DustVoice/nix-config#hostname
+sudo nixos-rebuild switch --flake github:DustVoice/den#hostname
 ```
 
 where `hostname` corresponds to a hostname defined in `modules/my/hosts.nix`.
@@ -43,7 +43,7 @@ This might be wise from a security standpoint but is annoying in this case.
 To circumvent this, add `--preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY` as an argument to sudo:
 
 ```console
-sudo --preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY,CURL_NIX_FLAGS nixos-rebuild switch --flake github:DustVoice/nix-config#hostname
+sudo --preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY,CURL_NIX_FLAGS nixos-rebuild switch --flake github:DustVoice/den#hostname
 ```
 
 ## Bootstrap on Generic Linux
@@ -60,7 +60,7 @@ To utilize the standalone home-manager configurations defined in `modules/my/hos
 4. Then build and run the home-manager configuration
    
    ```console
-   home-manager --extra-experimental-features "nix-command flakes" --flake github:DustVoice/nix-config#username switch
+   home-manager --extra-experimental-features "nix-command flakes" --flake github:DustVoice/den#username switch
    ```
 
    where `username` corresponds to a username for which a standalone home-manager config has been defined in `modules/my/hosts.nix`
