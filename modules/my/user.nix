@@ -10,6 +10,7 @@
         <dev/direnv>
         <dev/editors>
         <dev/fish>
+        <dev/fonts>
         <dev/git>
         <dev/ghostty>
         <dev/helix>
