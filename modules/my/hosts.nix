@@ -9,6 +9,14 @@
         dustvoice = { };
       };
     };
+    wsl-work = {
+      description = "WSL on my work machine";
+      wsl = { };
+      
+      users = {
+        dustvoice = { };
+      };
+    };
   };
 
   # define an standalone home-manager for dustvoice
@@ -17,6 +25,7 @@
   den.aspects = {
     dustvoice.includes = [ <my/user/dustvoice> ];
 
-    wsl-home.includes = [ <my/device/wsl-home> ];
+    wsl-home.includes = [ <my/machine/wsl-home> ];
+    wsl-work.includes = [ <my/machine/wsl-work> ];
   };
 }
