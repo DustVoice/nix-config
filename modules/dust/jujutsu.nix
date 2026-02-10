@@ -6,7 +6,6 @@
     {
     home.packages = [
       pkgs.lazyjj
-      pkgs.jj-fzf
       pkgs.jjui
     ];
 

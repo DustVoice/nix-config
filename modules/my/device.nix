@@ -1,4 +1,4 @@
-{ __findFile, inputs, pkgs, ... }:
+{ __findFile, inputs, ... }:
 {
   
   flake-file.inputs = {
@@ -9,9 +9,9 @@
   };
 
   my.device.provides = {
-    base = {
-      nixos.environment.systemPackages = [ pkgs.git pkgs.vim ];
-    };
+    base.includes = [
+      <nix-config/system>
+    ];
 
     wsl.nixos = {
       imports = [
