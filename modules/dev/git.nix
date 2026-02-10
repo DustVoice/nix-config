@@ -1,6 +1,7 @@
 {
-  dev.git = {
-    homeManager = {
+  dev.git.homeManager =
+    { config, ... }:
+    {
       programs = {
         difftastic = {
           enable = true;
@@ -9,10 +10,10 @@
             diffToolMode = true;
           };
         };
-    
+  
         helix.enable = true;
       };
-    
+  
       programs.git = {
         enable = true;
 
@@ -25,7 +26,6 @@
           core = {
             autocrlf = "input";
             editor = "hx";
-            attributesfile = "~/.gitattributes";
           };
 
           push = {
@@ -60,5 +60,4 @@
         lfs.enable = true;
       };
     };
-  };
 }
