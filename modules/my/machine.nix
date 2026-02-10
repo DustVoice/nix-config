@@ -20,7 +20,12 @@
         inputs.nixos-wsl.nixosModules.default
       ];
 
-      wsl.enable = true;
+      wsl = {
+        enable = true;
+        startMenuLaunchers = true;
+        usbip.enable = true;
+        useWindowsDriver = true;
+      };
     };
 
     wsl-home.includes = [
