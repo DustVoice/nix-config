@@ -64,6 +64,9 @@ bootstrapping the system for the first time requires some temporary environment 
 
 ```console
 proxy_url="http://user:password@proxy:port/"
+```
+
+```console
 export http_proxy="$proxy_url"
 export https_proxy="$proxy_url"
 export HTTP_PROXY="$proxy_url"
