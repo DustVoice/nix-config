@@ -20,6 +20,7 @@
         # <dev/secrets>
         <dev/terminals>
         <dev/zellij>
+        <dev/zoxide>
       ];
     };
   };
