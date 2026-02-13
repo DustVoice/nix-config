@@ -60,26 +60,21 @@ you'd need to
 
 When bootstrapping behind a proxy, some intermediate steps become necessary.
 Although the correct proxy configuration should be present for the specific hostname,
-bootstrapping the system for the first time requires some temporary environment modifications:
+bootstrapping the system needs to know about the proxy.
+
+Make sure that your `%USERPROFILE%\.wslconfig` includes `autoProxy=true` under the `[wsl]` section,
+or even better, that you're on a recent enough version where this setting is the default.
+You can also find this setting in the new _WSL Settings_ app included with recent WSL versions,
+under the Network tab.
+
+With the aforementioned automatic proxy setting propagation, the only remaining issue is that sudo
+doesn't simply inherit those values.
+To circumvent this for bootstrapping (correct `env_keep` configuration is included in `modules/my/hosts.nix`),
+simply add the `--preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY` parameter,
+or even easier the `-E` flag (preserves all environment variables), to the `sudo` command.
 
 ```console
-proxy_url="http://user:password@proxy:port/"
-```
-
-```console
-export http_proxy="$proxy_url"
-export https_proxy="$proxy_url"
-export HTTP_PROXY="$proxy_url"
-export HTTPS_PROXY="$proxy_url"
-export CURL_NIX_FLAGS="-x $proxy_url"
-```
-
-Unfortunately there is only a limited set of environment variables which get copied over by `sudo`!
-This might be wise from a security standpoint but is annoying in this case.
-To circumvent this, add `--preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY` as an argument to sudo:
-
-```console
-sudo --preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY,CURL_NIX_FLAGS nixos-rebuild switch --flake github:DustVoice/nix-config#hostname
+sudo -E nixos-rebuild switch --flake github:DustVoice/nix-config#hostname
 ```
 
 ## Bootstrap on Generic Linux
