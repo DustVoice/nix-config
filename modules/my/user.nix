@@ -7,6 +7,7 @@
         (<den/user-shell> "fish")
 
         <dev/cli-tui>
+        <dev/carapace>
         <dev/direnv>
         <dev/editors>
         <dev/fish>
