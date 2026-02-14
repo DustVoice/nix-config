@@ -1,5 +1,5 @@
 { lib, ... }: {
-  dev.nushell.homeManager = { config, ... }: {
+  dev.carapace.homeManager = { config, ... }: {
     programs.carapace = {
       enable = true;
 
