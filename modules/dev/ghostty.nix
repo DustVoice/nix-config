@@ -1,9 +1,9 @@
-{
-  dev.ghostty.homeManager = {
+{ lib, ... }: {
+  dev.ghostty.homeManager = { config, ... }: {
     programs.ghostty = {
       enable = true;
 
-      enableFishIntegration = true;
+      enableFishIntegration = lib.mkIf config.programs.fish.enable true;
 
       settings = {
         theme = "Catppuccin Macchiato";

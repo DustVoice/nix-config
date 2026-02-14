@@ -1,18 +1,14 @@
 {
   flake-file.inputs.jjui.url = "github:idursun/jjui";
 
-  dev.jujutsu.homeManager =
-    { pkgs, ... }:
-    {
-    home.packages = [
-      pkgs.lazyjj
-      pkgs.jjui
+  dev.jujutsu.homeManager = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      lazyjj
+      jjui
     ];
 
-    programs = {
-      helix.enable = true;
-      difftastic.enable = true;
-    };
+    programs.helix.enable = true;
+    programs.difftastic.enable = true;
 
     programs.jujutsu = {
       enable = true;
@@ -30,8 +26,6 @@
           
           diff-editor = ":builtin";
           diff-formatter = ["difft" "--color=always" "$left" "$right"];
-
-          show-cryptographic-signatures = true;
         };
       };
     };

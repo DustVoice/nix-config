@@ -1,15 +1,11 @@
-{ lib, ... }:
-{
-  dev.zoxide.homeManager = { config, pkgs, ... }: {
-    programs.zoxide = {
+{ lib, ... }: {
+  dev.fzf.homeManager = { config, ... }: {
+    programs.fzf = {
       enable = true;
-    
+
       enableBashIntegration = lib.mkIf config.programs.bash.enable true;
       enableFishIntegration = lib.mkIf config.programs.fish.enable true;
-      enableNushellIntegration = lib.mkIf config.programs.nushell.enable true;
       enableZshIntegration = lib.mkIf config.programs.zsh.enable true;
-    
-      options = [ "--cmd cd" ];
     };
   };
 }

@@ -11,6 +11,7 @@
         <dev/editors>
         <dev/fish>
         <dev/fonts>
+        <dev/fzf>
         <dev/git>
         <dev/ghostty>
         <dev/helix>

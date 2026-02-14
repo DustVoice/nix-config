@@ -1,10 +1,8 @@
 {
-  dev.terminals.homeManager =
-    { pkgs, ... }:
-    {
-      home.packages = [
-        pkgs.alacritty
-        pkgs.wezterm
-      ];
-    };
+  dev.terminals.homeManager = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      alacritty
+      wezterm
+    ];
+  };
 }
