@@ -1,16 +1,20 @@
-{
-  dev.cli-tui.homeManager = { pkgs, ... }: {
+let
+  bat.homeManager = {
     programs.bat = {
       enable = true;
       config.theme = "Catppuccin Macchiato";
-    };
+    };    
+  };
 
+  zellij.homeManager = {
     programs.zellij = {
       enable = true;
       settings.theme = "catppuccin-macchiato";
     };
+  };
 
-    home.packages = with pkgs; [
+  otherPackages.homeManager = { pkgs, ... }: {
+    home.packages =  with pkgs; [
       bottom
       diffnav
       eza
@@ -20,4 +24,11 @@
       ripgrep
     ];
   };
+in
+{
+  dev.cli-tui.includes = [
+    bat
+    zellij  
+    otherPackages
+  ];
 }

@@ -1,21 +1,14 @@
-{
-  flake-file.inputs.jjui.url = "github:idursun/jjui";
-
-  dev.vcs.homeManager = { pkgs, ... }: {
+let
+  git.homeManager = {
     # Dependencies
     programs = {
       difftastic.enable = true;
       difftastic.git.enable = true;
       difftastic.git.diffToolMode = true;
-
       helix.enable = true;
     };
-    home.packages = with pkgs; [
-      lazyjj
-      jjui
-    ];
 
-    # Git
+    # Main Program
     programs.git = {
       enable = true;
       settings = {
@@ -60,8 +53,20 @@
 
       lfs.enable = true;
     };
-        
-    # Jujutsu
+  };
+
+  jujutsu.homeManager = { pkgs, ... }: {
+    # Dependencies
+    programs = {
+      difftastic.enable = true;
+      helix.enable = true;
+    };
+    home.packages = with pkgs; [
+      lazyjj
+      jjui
+    ];
+
+    # Main Program
     programs.jujutsu = {
       enable = true;
       settings = {
@@ -81,4 +86,12 @@
       };
     };
   };
+in
+{
+  flake-file.inputs.jjui.url = "github:idursun/jjui";
+
+  dev.vcs.includes = [
+    git
+    jujutsu
+  ];
 }

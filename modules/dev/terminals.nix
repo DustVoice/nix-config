@@ -1,15 +1,18 @@
-{
-  dev.terminals.homeManager = {
-    programs.ghostty = {
-      enable = true;
+let
+  ghostty.homeManager.programs.ghostty = {
+    enable = true;
 
-      settings = {
-        theme = "Catppuccin Macchiato";
+    settings = {
+      theme = "Catppuccin Macchiato";
 
-        confirm-close-surface = false;
+      confirm-close-surface = false;
 
-        keybind = "performable:shift+insert=paste_from_clipboard";
-      };
+      keybind = "performable:shift+insert=paste_from_clipboard";
     };
   };
+in
+{
+  dev.terminals.includes = [
+    ghostty    
+  ];
 }
