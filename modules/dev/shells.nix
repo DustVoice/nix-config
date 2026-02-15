@@ -8,18 +8,38 @@ let
   };
 
   nushell.homeManager.programs = {
-    nushell = {
-      enable = true;
-    };
-
+    # Dependencies
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
 
+    helix.enable = true;
+    
     oh-my-posh.enableNushellIntegration = true;
 
     zoxide.enable = true;
     zoxide.enableNushellIntegration = true;
     zoxide.options = [ "--cmd cd" ];
+
+    # Main Program
+    nushell = {
+      enable = true;
+
+      settings = {
+        config = {
+          buffer_editor = "hx";
+          cursor_shape = {
+            emacs = "line";
+            vi_insert = "line";
+            vi_normal = "block";
+          };
+          edit_mode = "vi";
+        };
+      };
+
+      shellAliases = {
+        ll = "ls -l";
+      };
+    };
   };
 in
 {

@@ -1,5 +1,5 @@
 let
-  fontPackages.nixos = { pkgs, ... }: {
+  font-packages.nixos = { pkgs, ... }: {
     fonts.packages = with pkgs.nerd-fonts; [
       iosevka
       iosevka-term
@@ -7,7 +7,7 @@ let
     ];
   };
   
-  programConfigurations.homeManager = {
+  program-configurations.homeManager = {
     programs.ghostty.settings = {
       font-family = "IosevkaTerm Nerd Font";
       font-size = 13.0;
@@ -16,7 +16,7 @@ let
 in
 {
   dev.fonts.includes = [
-    fontPackages
-    programConfigurations
+    font-packages
+    program-configurations
   ];
 }

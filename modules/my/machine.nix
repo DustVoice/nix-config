@@ -1,11 +1,8 @@
 { __findFile, inputs, ... }:
 {
-  
-  flake-file.inputs = {
-    nixos-wsl = {
-      url = "github:nix-community/nixos-wsl";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+  flake-file.inputs.nixos-wsl = {
+    url = "github:nix-community/nixos-wsl";
+    inputs.nixpkgs.follows = "nixpkgs";
   };
 
   my.machine.provides = {

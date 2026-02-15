@@ -6,14 +6,17 @@
         <den/primary-user>
         (<den/user-shell> "fish")
 
+        <dev/ai>
         <dev/cli-tui>
         <dev/direnv>
         <dev/editors>
         <dev/fonts>
+        <dev/m3l>
         <dev/prompts>
         # <dev/secrets>
         <dev/shells>
         <dev/terminals>
+        <dev/typst>
         <dev/vcs>
       ];
     };
