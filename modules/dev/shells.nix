@@ -6,6 +6,7 @@ let
     oh-my-posh.enableFishIntegration = true;
     zoxide.enableFishIntegration = true;
   };
+  fish.homeManager.services.gpg-agent.enableFishIntegration = true;
 
   nushell.homeManager.programs = {
     # Dependencies
@@ -41,8 +42,8 @@ let
       };
     };
   };
-in
-{
+  nushell.homeManager.services.gpg-agent.enableNushellIntegration = true;
+in {
   dev.shells.includes = [
     fish
     nushell

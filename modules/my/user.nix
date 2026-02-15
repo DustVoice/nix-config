@@ -16,6 +16,7 @@
         <dev/prompts>
         # <dev/secrets>
         <dev/shells>
+        <dev/smartcard>
         <dev/terminals>
         <dev/typst>
         <dev/vcs>
