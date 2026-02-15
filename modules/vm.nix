@@ -1,13 +1,17 @@
-{ __findFile, inputs, den, ... }: {
-  perSystem = { pkgs, ... }: {
+{
+  __findFile,
+  inputs,
+  den,
+  ...
+}: {
+  perSystem = {pkgs, ...}: {
     packages.vm = pkgs.writeShellApplication {
       name = "vm";
-      text =
-        let
-          host = inputs.self.nixosConfigurations.wsl-home.config;
-        in ''
-          ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@"
-        '';
+      text = let
+        host = inputs.self.nixosConfigurations.wsl-home.config;
+      in ''
+        ${host.system.build.vm}/bin/run-${host.networking.hostName}-vm "$@"
+      '';
     };
   };
 }

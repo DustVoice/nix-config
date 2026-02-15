@@ -1,17 +1,19 @@
 let
-  alejandra.nixos = { pkgs, ... }: {
+  alejandra.nixos = {pkgs, ...}: {
     environment.systemPackages = [
       pkgs.alejandra
     ];
   };
 
-  helix-language.homeManager.programs.helix.languages.language = [{
-    name = "nix";
-    auto-format = true;
-    formatter.command = "alejandra";
-  }];
+  helix-language.homeManager.programs.helix.languages.language = [
+    {
+      name = "nix";
+      auto-format = true;
+      formatter.command = "alejandra";
+    }
+  ];
 
-  nil.nixos = { pkgs, ... }: {
+  nil.nixos = {pkgs, ...}: {
     environment.systemPackages = [
       pkgs.nil
     ];

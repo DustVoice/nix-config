@@ -1,50 +1,49 @@
-{ __findFile, inputs, ... }:
 {
+  __findFile,
+  inputs,
+  ...
+}: {
   flake-file.inputs.nixos-wsl = {
     url = "github:nix-community/nixos-wsl";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
   my.machine.provides = {
-    base.nixos =
-      { pkgs, ... }:
-      {
-        environment.systemPackages = with pkgs; [
-          git
-          vim
-        ];
+    base.nixos = {pkgs, ...}: {
+      environment.systemPackages = with pkgs; [
+        git
+        vim
+      ];
 
-        security.sudo-rs = {
-          enable = true;
-      	  wheelNeedsPassword = false;
+      security.sudo-rs = {
+        enable = true;
+        wheelNeedsPassword = false;
 
-          extraConfig = ''
-            Defaults env_keep += "http_proxy"
-            Defaults env_keep += "https_proxy"
-            Defaults env_keep += "HTTP_PROXY"
-            Defaults env_keep += "HTTPS_PROXY"
-          '';
-        };
+        extraConfig = ''
+          Defaults env_keep += "http_proxy"
+          Defaults env_keep += "https_proxy"
+          Defaults env_keep += "HTTP_PROXY"
+          Defaults env_keep += "HTTPS_PROXY"
+        '';
+      };
+    };
+
+    wsl.nixos = {pkgs, ...}: {
+      imports = [
+        inputs.nixos-wsl.nixosModules.default
+      ];
+
+      wsl = {
+        enable = true;
+        startMenuLaunchers = true;
+        usbip.enable = true;
+        useWindowsDriver = true;
       };
 
-    wsl.nixos =
-      { pkgs, ... }:
-      {
-        imports = [
-          inputs.nixos-wsl.nixosModules.default
-        ];
-
-        wsl = {
-          enable = true;
-          startMenuLaunchers = true;
-          usbip.enable = true;
-          useWindowsDriver = true;
-        };
-
-        environment.systemPackages = with pkgs; [
-          wsl-vpnkit
-        ];
-      };
+      environment.systemPackages = with pkgs; [
+        wsl-vpnkit
+      ];
+    };
 
     wsl-home.includes = [
       <my.machine/base>

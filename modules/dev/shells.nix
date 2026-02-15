@@ -14,12 +14,12 @@ let
     carapace.enableNushellIntegration = true;
 
     helix.enable = true;
-    
+
     oh-my-posh.enableNushellIntegration = true;
 
     zoxide.enable = true;
     zoxide.enableNushellIntegration = true;
-    zoxide.options = [ "--cmd cd" ];
+    zoxide.options = ["--cmd cd"];
 
     # Main Program
     nushell = {

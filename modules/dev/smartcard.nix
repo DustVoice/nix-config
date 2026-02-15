@@ -1,5 +1,5 @@
 let
-  yubikey.nixos = { pkgs, ... }: {
+  yubikey.nixos = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       yubikey-manager
       yubioath-flutter
@@ -18,15 +18,17 @@ let
   gpg.homeManager = {
     programs.gpg = {
       enable = true;
-      publicKeys = [{
-        source = ./keys/dustvoice-public-key.asc;
-        trust = 5;
-      }];
+      publicKeys = [
+        {
+          source = ./keys/dustvoice-public-key.asc;
+          trust = 5;
+        }
+      ];
     };
 
     services.gpg-agent = {
       enable = true;
-      sshKeys = [ "26AACF211BE8A6FB4383ACF626B1D4394551CB84" ];
+      sshKeys = ["26AACF211BE8A6FB4383ACF626B1D4394551CB84"];
 
       defaultCacheTtl = 300;
       defaultCacheTtlSsh = 300;
@@ -39,8 +41,7 @@ let
       '';
     };
   };
-in
-{
+in {
   dev.smartcard.includes = [
     yubikey
     pcsc-lite

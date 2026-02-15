@@ -10,9 +10,8 @@ let
       keybind = "performable:shift+insert=paste_from_clipboard";
     };
   };
-in
-{
+in {
   dev.terminals.includes = [
-    ghostty    
+    ghostty
   ];
 }

@@ -1,31 +1,30 @@
-{ __findFile, ... }:
-{
+{__findFile, ...}: {
   den.hosts.x86_64-linux = {
     wsl-home = {
       description = "WSL on my home machine";
-      wsl = { };
-      
+      wsl = {};
+
       users = {
-        dustvoice = { };
+        dustvoice = {};
       };
     };
     wsl-work = {
       description = "WSL on my work machine";
-      wsl = { };
-      
+      wsl = {};
+
       users = {
-        dustvoice = { };
+        dustvoice = {};
       };
     };
   };
 
   # define an standalone home-manager for dustvoice
-  den.homes.x86_64-linux.dustvoice = { };
-  
-  den.aspects = {
-    dustvoice.includes = [ <my/user/dustvoice> ];
+  den.homes.x86_64-linux.dustvoice = {};
 
-    wsl-home.includes = [ <my/machine/wsl-home> ];
-    wsl-work.includes = [ <my/machine/wsl-work> ];
+  den.aspects = {
+    dustvoice.includes = [<my/user/dustvoice>];
+
+    wsl-home.includes = [<my/machine/wsl-home>];
+    wsl-work.includes = [<my/machine/wsl-work>];
   };
 }

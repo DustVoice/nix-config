@@ -1,5 +1,8 @@
-{ den, inputs, ... }:
 {
+  den,
+  inputs,
+  ...
+}: {
   flake-file.inputs.home-manager = {
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +15,7 @@
     den._.self'
   ];
 
-  den.aspects.hm.homeManager = { pkgs, ... }: {
+  den.aspects.hm.homeManager = {pkgs, ...}: {
     home.packages = [
       inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];

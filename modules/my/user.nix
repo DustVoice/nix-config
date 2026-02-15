@@ -1,5 +1,4 @@
-{ __findFile, ... }:
-{
+{__findFile, ...}: {
   my.user.provides = {
     dustvoice = <den.lib.parametric> {
       includes = [

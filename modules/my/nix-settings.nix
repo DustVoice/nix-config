@@ -3,33 +3,34 @@ let
     nixos = nix-settings;
   };
 
-  nix-settings =
-    { pkgs, config, ... }:
-      {
-        nix = {
-          optimise.automatic = true;
+  nix-settings = {
+    pkgs,
+    config,
+    ...
+  }: {
+    nix = {
+      optimise.automatic = true;
 
-          settings = {
-            experimental-features = [
-              "nix-command"
-              "flakes"
-              # "allow-import-from-derivation"
-            ];
+      settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+          # "allow-import-from-derivation"
+        ];
 
-            trusted-users = [
-              "root"
-              "@wheel"
-            ];
-          };
-
-          gc = pkgs.lib.optionalAttrs config.nix.enable {
-            automatic = true;
-            # interval = "weekly"; # TODO!
-            options = "--delete-older-than 7d";
-          };
-        };
+        trusted-users = [
+          "root"
+          "@wheel"
+        ];
       };
-  in
-  {
-    inherit my;
-  }
+
+      gc = pkgs.lib.optionalAttrs config.nix.enable {
+        automatic = true;
+        # interval = "weekly"; # TODO!
+        options = "--delete-older-than 7d";
+      };
+    };
+  };
+in {
+  inherit my;
+}

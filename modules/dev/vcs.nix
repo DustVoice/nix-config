@@ -1,5 +1,4 @@
-{ inputs, ... }:
-let
+{inputs, ...}: let
   flake-file.inputs = {
     jjdag = {
       url = "github:anthrofract/jjdag";
@@ -28,7 +27,7 @@ let
       settings = {
         user = {
           name = "DustVoice";
-          email  = "info@dustvoice.de";
+          email = "info@dustvoice.de";
         };
 
         core = {
@@ -69,13 +68,13 @@ let
     };
   };
 
-  jujutsu.homeManager = { pkgs, ... }: {
+  jujutsu.homeManager = {pkgs, ...}: {
     # Dependencies
     programs = {
       difftastic.enable = true;
       helix.enable = true;
     };
-    nixpkgs.overlays = [ inputs.jjdag.overlays.default ];
+    nixpkgs.overlays = [inputs.jjdag.overlays.default];
     home.packages = with pkgs; [
       lazyjj
       jjui
@@ -95,17 +94,16 @@ let
           editor = "hx";
 
           default-command = "log";
-        
+
           diff-editor = ":builtin";
           diff-formatter = ["difft" "--color=always" "$left" "$right"];
         };
       };
     };
   };
-in
-{
+in {
   inherit flake-file;
-  
+
   dev.vcs.includes = [
     git
     jujutsu

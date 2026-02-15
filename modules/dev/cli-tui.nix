@@ -3,7 +3,7 @@ let
     programs.bat = {
       enable = true;
       config.theme = "Catppuccin Macchiato";
-    };    
+    };
   };
 
   zellij.homeManager = {
@@ -13,8 +13,8 @@ let
     };
   };
 
-  otherPackages.homeManager = { pkgs, ... }: {
-    home.packages =  with pkgs; [
+  otherPackages.homeManager = {pkgs, ...}: {
+    home.packages = with pkgs; [
       bottom
       diffnav
       eza
@@ -24,11 +24,10 @@ let
       ripgrep
     ];
   };
-in
-{
+in {
   dev.cli-tui.includes = [
     bat
-    zellij  
+    zellij
     otherPackages
   ];
 }

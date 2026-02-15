@@ -1,11 +1,12 @@
 let
-  helix-language.homeManager.programs.helix.languages.language = [{
-    name = "typst";
-    auto-format = true;
-    formatter.command = "typstfmt";
-  }];
-in
-{
+  helix-language.homeManager.programs.helix.languages.language = [
+    {
+      name = "typst";
+      auto-format = true;
+      formatter.command = "typstfmt";
+    }
+  ];
+in {
   dev.typst.includes = [
     helix-language
   ];

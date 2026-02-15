@@ -34,15 +34,14 @@ let
         g.right = "goto_line_end";
         g.up = "goto_file_start";
         g.down = "goto_last_line";
-        space.l.g = [ ":new" ":insert-output lazygit" ":buffer-close!" ":redraw" ];
-        space.l.j = [ ":new" ":insert-output lazygit" ":buffer-close!" ":redraw" ];
+        space.l.g = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
+        space.l.j = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
       };
     };
   };
 
   neovim.nixos.programs.neovim.enable = true;
-in
-{
+in {
   dev.editors.includes = [
     helix
     neovim
