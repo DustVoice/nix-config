@@ -10,12 +10,63 @@ let
     ];
   };
 
+  yubikey-switch = {
+    homeManager = {
+      pkgs,
+      config,
+      ...
+    }: let
+      script = pkgs.writeShellApplication {
+        name = "yubikey-switch";
+        runtimeInputs = [
+          pkgs.coreutils
+          pkgs.bash
+          pkgs.killall
+          pkgs.gnupg
+        ];
+        bashOptions = [
+          "nounset"
+          "pipefail"
+        ];
+        text = ''
+          killall gpg-agent
+
+          rm "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/26AACF211BE8A6FB4383ACF626B1D4394551CB84.key"
+          rm "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/6DE8255F05181D389896EBE19B59C3D8FB9E8730.key"
+          rm "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/808C4504182AA76DE8A7CB216722EBF6966D9C99.key"
+
+          gpg --card-status
+        '';
+      };
+    in {
+      home.packages = with pkgs; [
+        killall
+        script
+      ];
+
+      systemd.user.services.yubikey-switch = {
+        Unit.Description = "Switch to new Yubikey upon insertion";
+        Install.WantedBy = ["dev-yubikey.device"];
+        Service = {
+          Type = "oneshot";
+          ExecStart = "${script}/bin/yubikey-switch";
+        };
+      };
+    };
+
+    nixos = {pkgs, ...}: {
+      services.udev.extraRules = ''
+        ENV{ID_VENDOR}=="Yubico", ENV{ID_VENDOR_ID}=="1050", ENV{ID_MODEL_ID}=="0010|0111|0112|0113|0114|0115|0116|0401|0402|0403|0404|0405|0406|0407|0410", SYMLINK+="yubikey", TAG+="systemd"
+      '';
+    };
+  };
+
   pcsc-lite = {
     nixos.services.pcscd.enable = true;
     homeManager.programs.gpg.scdaemonSettings.disable-ccid = true;
   };
 
-  gpg.homeManager = {
+  gnupg.homeManager = {
     programs.gpg = {
       enable = true;
       publicKeys = [
@@ -42,9 +93,12 @@ let
     };
   };
 in {
-  dev.smartcard.includes = [
-    yubikey
-    pcsc-lite
-    gpg
-  ];
+  dev.smartcard = username: {
+    includes = [
+      yubikey
+      yubikey-switch
+      pcsc-lite
+      gnupg
+    ];
+  };
 }
