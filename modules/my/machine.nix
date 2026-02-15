@@ -9,7 +9,10 @@
     base.nixos =
       { pkgs, ... }:
       {
-        environment.systemPackages = [ pkgs.git pkgs.vim ];
+        environment.systemPackages = with pkgs; [
+          git
+          vim
+        ];
 
         security.sudo-rs = {
           enable = true;
@@ -38,7 +41,9 @@
           useWindowsDriver = true;
         };
 
-        environment.systemPackages = [ pkgs.wsl-vpnkit ];
+        environment.systemPackages = with pkgs; [
+          wsl-vpnkit
+        ];
       };
 
     wsl-home.includes = [
