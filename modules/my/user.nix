@@ -16,6 +16,7 @@
         # <dev/secrets>
         <dev/shells>
         <dev/smartcard>
+        <dev/ssh>
         <dev/terminals>
         <dev/typst>
         <dev/vcs>

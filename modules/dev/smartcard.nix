@@ -1,4 +1,4 @@
-{lib, ...}: let
+let
   yubikey.nixos = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       yubikey-manager
