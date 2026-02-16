@@ -3,7 +3,7 @@
     dustvoice = <den.lib.parametric> {
       includes = [
         <den/primary-user>
-        (<den/user-shell> "fish")
+        (<nix-config/user-shell> "nushell")
 
         <dev/ai>
         <dev/cli-tui>

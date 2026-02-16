@@ -26,15 +26,13 @@ let
       enable = true;
 
       settings = {
-        config = {
-          buffer_editor = "hx";
-          cursor_shape = {
-            emacs = "line";
-            vi_insert = "line";
-            vi_normal = "block";
-          };
-          edit_mode = "vi";
+        buffer_editor = "hx";
+        cursor_shape = {
+          emacs = "line";
+          vi_insert = "line";
+          vi_normal = "block";
         };
+        edit_mode = "vi";
       };
 
       shellAliases = {
