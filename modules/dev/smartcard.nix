@@ -1,4 +1,4 @@
-let
+{lib, ...}: let
   yubikey.nixos = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       yubikey-manager
@@ -66,7 +66,8 @@ let
     homeManager.programs.gpg.scdaemonSettings.disable-ccid = true;
   };
 
-  gnupg.homeManager = {
+  gnupg-with-ssh.homeManager = {
+    # gpg
     programs.gpg = {
       enable = true;
       publicKeys = [
@@ -77,9 +78,9 @@ let
       ];
     };
 
+    # gpg-agent
     services.gpg-agent = {
       enable = true;
-      sshKeys = ["26AACF211BE8A6FB4383ACF626B1D4394551CB84"];
 
       defaultCacheTtl = 300;
       defaultCacheTtlSsh = 300;
@@ -90,15 +91,25 @@ let
         allow-loopback-pinentry
         allow-emacs-pinentry
       '';
+
+      sshKeys = ["26AACF211BE8A6FB4383ACF626B1D4394551CB84"];
+      enableSshSupport = true;
+      enableExtraSocket = true;
     };
   };
+
+  pinentry.homeManager = {pkgs, ...}: {
+    home.packages = with pkgs; [pinentry-qt];
+    services.gpg-agent.pinentry.package = pkgs.pinentry-qt;
+  };
 in {
-  dev.smartcard = username: {
+  dev.smartcard = {
     includes = [
       yubikey
       yubikey-switch
       pcsc-lite
-      gnupg
+      gnupg-with-ssh
+      pinentry
     ];
   };
 }
