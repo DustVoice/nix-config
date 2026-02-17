@@ -13,7 +13,7 @@
         <dev/m3l>
         <dev/nix>
         <dev/prompts>
-        # <dev/secrets>
+        <dev/secrets>
         <dev/shells>
         <dev/smartcard>
         <dev/ssh>

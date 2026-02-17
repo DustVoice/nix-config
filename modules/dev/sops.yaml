@@ -1,0 +1,7 @@
+keys:
+  - &dustvoice e45e93318f173a297290b4e17a9ca430d426100e
+creation_rules:
+  - path_regex: ^.*$
+    key_groups:
+      - pgp:
+          - *dustvoice
