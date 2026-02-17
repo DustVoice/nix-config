@@ -45,15 +45,12 @@
       ];
     };
 
-    wsl-home.includes = [
-      <my.machine/base>
-      <my.machine/wsl>
-    ];
-
-    wsl-work-old.includes = [
-      <my.machine/base>
-      <my.machine/wsl>
-    ];
+    wsl-home = {
+      includes = [
+        <my.machine/base>
+        <my.machine/wsl>
+      ];
+    };
 
     wsl-work = {
       includes = [

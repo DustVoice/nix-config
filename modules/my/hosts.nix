@@ -18,7 +18,6 @@
     };
   };
 
-  # define an standalone home-manager for dustvoice
   den.homes.x86_64-linux.dustvoice = {};
 
   den.aspects = {
