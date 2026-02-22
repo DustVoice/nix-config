@@ -3,6 +3,7 @@ let
     fish.enable = true;
     fzf.enableFishIntegration = true;
     ghostty.enableFishIntegration = true;
+    nix-your-shell.enableFishIntegration = true;
     oh-my-posh.enableFishIntegration = true;
     zoxide.enableFishIntegration = true;
   };
@@ -14,6 +15,8 @@ let
     carapace.enableNushellIntegration = true;
 
     helix.enable = true;
+
+    nix-your-shell.enableNushellIntegration = true;
 
     oh-my-posh.enableNushellIntegration = true;
 
@@ -41,9 +44,16 @@ let
     };
   };
   nushell.homeManager.services.gpg-agent.enableNushellIntegration = true;
+
+  nix-your-shell.homeManager.programs.nix-your-shell = {
+    enable = true;
+    nix-output-monitor.enable = true;
+  };
 in {
   dev.shells.includes = [
     fish
     nushell
+
+    nix-your-shell
   ];
 }
