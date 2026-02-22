@@ -54,16 +54,17 @@ let
     ];
   };
 
-  nix-your-shell.homeManager.programs.nix-your-shell = {
-    enable = true;
-    nix-output-monitor.enable = true;
-  };
-
   # NOTE: This is needed for the Windows Terminal app to respect colors;
-  colorterm.homeManager.programs = {
+  nushell-colorterm.homeManager.programs = {
     nushell.extraEnv = ''
       $env.COLORTERM = "truecolor";
     '';
+  };
+
+  nom.homeManager = {pkgs, ...}: {
+    home.packages = with pkgs; [
+      nix-output-monitor
+    ];
   };
 in {
   dev.shells.includes = [
@@ -71,8 +72,8 @@ in {
 
     nushell
     nushell-plugins
+    nushell-colorterm
 
-    nix-your-shell
-    colorterm
+    nom
   ];
 }
