@@ -12,6 +12,7 @@
         <dev/fonts>
         <dev/m3l>
         <dev/nix>
+        <dev/nh>
         <dev/prompts>
         <dev/secrets>
         <dev/shells>
