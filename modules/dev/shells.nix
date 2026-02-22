@@ -58,6 +58,13 @@ let
     enable = true;
     nix-output-monitor.enable = true;
   };
+
+  # NOTE: This is needed for the Windows Terminal app to respect colors;
+  colorterm.homeManager.programs = {
+    nushell.extraEnv = ''
+      $env.COLORTERM = "truecolor";
+    '';
+  };
 in {
   dev.shells.includes = [
     fish
@@ -66,5 +73,6 @@ in {
     nushell-plugins
 
     nix-your-shell
+    colorterm
   ];
 }
