@@ -17,7 +17,7 @@
     homeManager.programs.bash = {
       enable = true;
       initExtra = ''
-        if [[ $(ps --no-header --pid $PPID --format comm) != "nu" ]]; then
+        if [[ $TERM != "dumb" && $(ps --no-header --pid $PPID --format comm) != "nu" ]]; then
           exec nu
         fi
       '';
