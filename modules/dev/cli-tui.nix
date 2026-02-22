@@ -10,6 +10,7 @@ let
     programs.zellij = {
       enable = true;
       settings.theme = "catppuccin-macchiato";
+      settings.default_mode = "locked";
     };
   };
 
