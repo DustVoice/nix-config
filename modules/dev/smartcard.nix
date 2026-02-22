@@ -36,6 +36,8 @@ let
           rm "${config.home.homeDirectory}/.gnupg/private-keys-v1.d/808C4504182AA76DE8A7CB216722EBF6966D9C99.key"
 
           gpg --card-status
+
+          gpg-connect-agent updatestartuptty /bye
         '';
       };
     in {
