@@ -8,12 +8,11 @@
     If supported by <den/user-shell>, this aspect will delegate accordingly.
   '';
 
-  nushell = user: let
-    nixos = {pkgs, ...}: {
+  nushell = let
+    user = {pkgs, ...}: {
       programs.bash.enable = true;
-      users.users.${user.userName}.shell = pkgs.bash;
+      shell = pkgs.bash;
     };
-    darwin = nixos;
     homeManager.programs.bash = {
       enable = true;
       initExtra = ''
@@ -27,7 +26,7 @@
     };
     homeManager.programs.ghostty.settings.command = "nu";
   in {
-    inherit nixos darwin homeManager;
+    inherit user homeManager;
   };
 in {
   nix-config.user-shell = shell:
@@ -36,8 +35,8 @@ in {
       includes =
         if shell == "nushell"
         then [
-          ({user, ...}: nushell user)
-          ({home, ...}: nushell home)
+          ({user, ...}: nushell)
+          ({home, ...}: nushell)
         ]
         else (<den/user-shell> shell);
     };

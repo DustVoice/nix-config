@@ -6,22 +6,27 @@
   flake-file.inputs.claude-code.url = "github:sadjow/claude-code-nix";
 
   claude-code = {
-    includes = [
-      (<den/unfree> [
-        "claude-code"
-        "claude-code-node"
-        "claude-code-bun"
-      ])
-    ];
+    # includes = [
+    #   (<den/unfree> [
+    #     "claude-code"
+    #     "claude-code-node"
+    #     "claude-code-bun"
+    #   ])
+    # ];
 
     nixos.nix.settings = {
       substituters = ["https://claude-code.cachix.org"];
       trusted-public-keys = ["claude-code.cachix.org-1:YeXf2aNu7UTX8Vwrze0za1WEDS+4DuI2kVeWEE4fsRk="];
     };
 
+    # nixos = {
+    #   imports = [
+    #     inputs.claude-code.overlays.default
+    #   ];
+    # };
+
     homeManager = {pkgs, ...}: {
-      nixpkgs.overlays = [inputs.claude-code.overlays.default];
-      home.packages = [pkgs.claude-code-bun];
+      # home.packages = [pkgs.claude-code-bun];
     };
   };
 

@@ -18,10 +18,6 @@
       url = "github:nix-community/home-manager";
     };
     import-tree.url = "github:vic/import-tree";
-    jjdag = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:anthrofract/jjdag";
-    };
     jjui = {
       inputs = {
         flake-parts.follows = "nixpkgs";

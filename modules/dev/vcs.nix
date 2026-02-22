@@ -1,10 +1,5 @@
 {inputs, ...}: let
   flake-file.inputs = {
-    jjdag = {
-      url = "github:anthrofract/jjdag";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     jjui = {
       url = "github:idursun/jjui";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,11 +69,9 @@
       difftastic.enable = true;
       helix.enable = true;
     };
-    nixpkgs.overlays = [inputs.jjdag.overlays.default];
     home.packages = with pkgs; [
       lazyjj
       jjui
-      jjdag
     ];
 
     # Main Program
