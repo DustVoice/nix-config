@@ -45,6 +45,15 @@ let
   };
   nushell.homeManager.services.gpg-agent.enableNushellIntegration = true;
 
+  nushell-plugins.homeManager = {pkgs, ...}: {
+    programs.nushell.plugins = with pkgs.nushellPlugins; [
+      formats
+      highlight
+      polars
+      query
+    ];
+  };
+
   nix-your-shell.homeManager.programs.nix-your-shell = {
     enable = true;
     nix-output-monitor.enable = true;
@@ -52,7 +61,9 @@ let
 in {
   dev.shells.includes = [
     fish
+
     nushell
+    nushell-plugins
 
     nix-your-shell
   ];
