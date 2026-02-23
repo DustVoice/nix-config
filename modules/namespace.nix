@@ -9,5 +9,6 @@
     (inputs.den.namespace "nix-config" true)
     (inputs.den.namespace "my" false)
     (inputs.den.namespace "dev" false)
+    (inputs.den.namespace "cad" false)
   ];
 }

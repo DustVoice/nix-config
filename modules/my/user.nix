@@ -21,6 +21,9 @@
         <dev/terminals>
         <dev/typst>
         <dev/vcs>
+
+        <cad/kicad>
+        <cad/openscad>
       ];
     };
   };
