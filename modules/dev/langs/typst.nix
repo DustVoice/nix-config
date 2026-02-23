@@ -7,7 +7,7 @@ let
     }
   ];
 in {
-  dev.typst.includes = [
+  dev.langs.provides.typst.includes = [
     helix-language
   ];
 

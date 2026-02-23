@@ -10,8 +10,7 @@
         <dev/direnv>
         <dev/editors>
         <dev/fonts>
-        <dev/m3l>
-        <dev/nix>
+        <dev/langs>
         <dev/nh>
         <dev/prompts>
         <dev/secrets>
@@ -19,7 +18,6 @@
         <dev/smartcard>
         <dev/ssh>
         <dev/terminals>
-        <dev/typst>
         <dev/vcs>
 
         <cad/kicad>

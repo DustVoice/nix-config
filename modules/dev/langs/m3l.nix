@@ -15,11 +15,11 @@ let
       }
     ];
 
-    home.file.".config/helix/runtime/grammars/m3l.so".source = ./dots/m3l.so;
-    home.file.".config/helix/runtime/queries/m3l/highlights.scm".source = ./dots/highlights-m3l.scm;
+    home.file.".config/helix/runtime/grammars/m3l.so".source = ./m3l.so;
+    home.file.".config/helix/runtime/queries/m3l/highlights.scm".source = ./m3l-highlights.scm;
   };
 in {
-  dev.m3l.includes = [
+  dev.langs.provides.m3l.includes = [
     helix-language
   ];
 }

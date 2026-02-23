@@ -19,7 +19,7 @@ let
     ];
   };
 in {
-  dev.nix.includes = [
+  dev.langs.provides.nix.includes = [
     alejandra
     helix-language
     nil
