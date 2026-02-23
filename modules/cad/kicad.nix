@@ -1,6 +1,9 @@
 let
   kicad.homeManager = {pkgs, ...}: {
     home.packages = [pkgs.kicad];
+    home.sessionVariables = {
+      KICAD_SYMBOL_DIR = "${pkgs.kicad.libraries.symbols}/share/kicad/symbols";
+    };
   };
 
   components.homeManager = {pkgs, ...}: {
