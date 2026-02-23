@@ -12,6 +12,11 @@
           <den/unfree> [
             variant
           ])
+
+        ({home, ...}:
+          <den/unfree> [
+            variant
+          ])
       ];
 
       nixos.nix.settings = {

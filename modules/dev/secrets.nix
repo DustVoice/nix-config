@@ -1,4 +1,8 @@
-{inputs, ...}: let
+{
+  __findFile,
+  inputs,
+  ...
+}: let
   flake-file.inputs.sops-nix.url = "github:Mic92/sops-nix";
 
   sops-nix.homeManager = {
@@ -68,9 +72,12 @@
 in {
   inherit flake-file;
 
-  dev.secrets.includes = [
-    sops-nix
-    age
-    api-keys
-  ];
+  dev.secrets = <den.lib.parametric> {
+    includes = [
+      ({user, ...}: sops-nix)
+      ({home, ...}: sops-nix)
+      age
+      api-keys
+    ];
+  };
 }
