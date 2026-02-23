@@ -54,11 +54,9 @@ let
     ];
   };
 
-  # NOTE: This is needed for the Windows Terminal app to respect colors;
-  nushell-colorterm.homeManager.programs = {
-    nushell.extraEnv = ''
-      $env.COLORTERM = "truecolor";
-    '';
+  env.homeManager.home.sessionVariables = {
+    # NOTE: This is needed for the Windows Terminal app to respect colors;
+    COLORTERM = "truecolor";
   };
 
   nom.homeManager = {pkgs, ...}: {
@@ -72,8 +70,8 @@ in {
 
     nushell
     nushell-plugins
-    nushell-colorterm
 
+    env
     nom
   ];
 }
