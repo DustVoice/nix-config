@@ -21,6 +21,7 @@ let
       eza
       fd
       htop
+      julia
       jq
       ripgrep
       wget
