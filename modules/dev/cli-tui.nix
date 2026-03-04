@@ -23,6 +23,7 @@ let
       htop
       jq
       ripgrep
+      wget
     ];
   };
 in {
