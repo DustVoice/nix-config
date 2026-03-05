@@ -5,7 +5,7 @@
       wsl = {};
 
       users = {
-        dustvoice = {};
+        dustvoice.classes = ["homeManager"];
       };
     };
     wsl-work = {
@@ -13,7 +13,7 @@
       wsl = {};
 
       users = {
-        dustvoice = {};
+        dustvoice.classes = ["homeManager"];
       };
     };
   };

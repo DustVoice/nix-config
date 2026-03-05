@@ -9,7 +9,6 @@
   };
 
   den.default.includes = [
-    den._.home-manager
     den.aspects.hm
     den._.inputs'
     den._.self'
