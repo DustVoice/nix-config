@@ -48,7 +48,7 @@ let
   nushell-plugins.homeManager = {pkgs, ...}: {
     programs.nushell.plugins = with pkgs.nushellPlugins; [
       formats
-      highlight
+      # highlight
       polars
       query
     ];
