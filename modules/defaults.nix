@@ -9,7 +9,7 @@
   };
 
   den.ctx.host.includes = [
-    <nix-config/hostname>
+    <den/hostname>
     <my/nix-settings>
   ];
 }
