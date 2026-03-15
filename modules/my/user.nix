@@ -7,6 +7,7 @@
 
         <dev/ai>
         <dev/cli-tui>
+        <dev/devenv>
         <dev/direnv>
         <dev/editors>
         <dev/fonts>
