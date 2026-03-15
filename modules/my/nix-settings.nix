@@ -1,5 +1,13 @@
-{
-  my.nix-settings = {host, ...}: {
+let
+  secrets = {
+    homeManager = {config, ...}: {
+      nix.extra-options = ''
+        !include ${config.sops.secrets.nix_access_tokens.path}
+      '';
+    };
+  };
+
+  nix-settings = {host, ...}: {
     nixos.nix = {
       optimise.automatic = true;
 
@@ -16,4 +24,9 @@
       };
     };
   };
+in {
+  my.nix-settings.includes = [
+    nix-settings
+    secrets
+  ];
 }

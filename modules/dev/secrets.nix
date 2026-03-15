@@ -23,6 +23,12 @@
     };
   };
 
+  github-token = {user, ...}: {
+    homeManager = {config, ...}: {
+      sops.secrets.nix_access_tokens.owner = user.userName;
+    };
+  };
+
   age.homeManager = {pkgs, ...}: {
     home.packages = [pkgs.age];
   };
@@ -63,6 +69,8 @@ in {
       ({user, ...}: sops-nix)
       ({home, ...}: sops-nix)
       age
+
+      ({user, ...}: github-token)
     ];
   };
 }
