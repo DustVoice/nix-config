@@ -5,6 +5,20 @@
 }: let
   flake-file.inputs.claude-code.url = "github:sadjow/claude-code-nix";
 
+  secrets.homeManager = {config, ...}: {
+    sops = {
+      secrets = {
+        "anthropic_api_key" = {};
+      };
+
+      templates = {
+        "llm_apis.env".content = ''
+          export ANTHROPIC_API_KEY="${config.sops.placeholder.anthropic_api_key}"
+        '';
+      };
+    };
+  };
+
   claude-code = variant:
     <den.lib.parametric> {
       includes = [
@@ -53,6 +67,7 @@ in {
     includes = [
       (claude-code "claude-code-bun")
       helix-assist
+      secrets
     ];
   };
 }

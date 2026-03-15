@@ -27,20 +27,6 @@
     home.packages = [pkgs.age];
   };
 
-  api-keys.homeManager = {config, ...}: {
-    sops = {
-      secrets = {
-        "anthropic_api_key" = {};
-      };
-
-      templates = {
-        "llm_apis.env".content = ''
-          export ANTHROPIC_API_KEY="${config.sops.placeholder.anthropic_api_key}"
-        '';
-      };
-    };
-  };
-
   yubikey-ssh-keys.homeManager = {config}: {
     sops.secrets = {
       "ssh/yk5-dustdev" = {
@@ -77,7 +63,6 @@ in {
       ({user, ...}: sops-nix)
       ({home, ...}: sops-nix)
       age
-      api-keys
     ];
   };
 }
