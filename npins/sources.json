@@ -1,0 +1,124 @@
+{
+  "pins": {
+    "claude-code-nix": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "sadjow",
+        "repo": "claude-code-nix"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v2.1.100",
+      "revision": "ff6524286b3484a5b776d48e0155aa7ac1c9b3c0",
+      "url": "https://api.github.com/repos/sadjow/claude-code-nix/tarball/refs/tags/v2.1.100",
+      "hash": "sha256-rm8dROL7tpCWG6oRP2vNcJo3HQpx53Ddsrjdl2hni5Y="
+    },
+    "den": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "den"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "8d2fe019b3206fad9bd286bfb93a11feff137e13",
+      "url": "https://github.com/vic/den/archive/8d2fe019b3206fad9bd286bfb93a11feff137e13.tar.gz",
+      "hash": "sha256-N9JZNT5qks60LiTgCeCVZRHs9Iwcb9rOimQyuyRTjLU="
+    },
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "e35c39fca04fee829cecdf839a50eb9b54d8a701",
+      "url": "https://github.com/nix-community/home-manager/archive/e35c39fca04fee829cecdf839a50eb9b54d8a701.tar.gz",
+      "hash": "sha256-L5yKTpR+alrZU2XYYvIxCeCP4LBHU5jhwSj7H1VAavg="
+    },
+    "import-tree": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "import-tree"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "c41e7d58045f9057880b0d85e1152d6a4430dbf1",
+      "url": "https://github.com/vic/import-tree/archive/c41e7d58045f9057880b0d85e1152d6a4430dbf1.tar.gz",
+      "hash": "sha256-BtZ2dtkBdSUnFPPFc+n0kcMbgaTxzFNPv2iaO326Ffg="
+    },
+    "jjui": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "idursun",
+        "repo": "jjui"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.10.2",
+      "revision": "05e95d80bb9a3c4a51c26419956edf0952f0e391",
+      "url": "https://api.github.com/repos/idursun/jjui/tarball/refs/tags/v0.10.2",
+      "hash": "sha256-VTaOd5LSBxo6EhTyjoyAqX+wTEcm88qIgUCcd+TRYY4="
+    },
+    "nixos-wsl": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nixos-wsl"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "2511.7.1",
+      "revision": "9b4aa22b7f36d6c896f5bd027f8160e43bfb1ec3",
+      "url": "https://api.github.com/repos/nix-community/nixos-wsl/tarball/refs/tags/2511.7.1",
+      "hash": "sha256-6jlr4nS8ULz8+qc4ReiYSMJWpQh0Vet+4IsqeX/zsrE="
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre977728.b0188973b4b2/nixexprs.tar.xz",
+      "hash": "sha256-QIGMZuG5QK1Z4OEMDSpEJc7JRonbemZ9S+xpBIsQuNE="
+    },
+    "sops-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Mic92",
+        "repo": "sops-nix"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "d2e8438d5886e92bc5e7c40c035ab6cae0c41f76",
+      "url": "https://github.com/Mic92/sops-nix/archive/d2e8438d5886e92bc5e7c40c035ab6cae0c41f76.tar.gz",
+      "hash": "sha256-0E9PohY/VuESLq0LR4doaH7hTag513sDDW5n5qmHd1Q="
+    },
+    "with-inputs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "with-inputs"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "0cea9a3b1653b6da21e00d5a01358abb57e9b0b3",
+      "url": "https://github.com/vic/with-inputs/archive/0cea9a3b1653b6da21e00d5a01358abb57e9b0b3.tar.gz",
+      "hash": "sha256-BqoGLojCyyBoZLtPvsRlf00578oG9RT0FkUMCG8sUJ4="
+    }
+  },
+  "version": 7
+}

@@ -3,11 +3,6 @@
   inputs,
   ...
 }: {
-  flake-file.inputs.nixos-wsl = {
-    url = "github:nix-community/nixos-wsl";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   my.machine.provides = {
     base.nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [

@@ -3,8 +3,6 @@
   inputs,
   ...
 }: let
-  flake-file.inputs.claude-code.url = "github:sadjow/claude-code-nix";
-
   secrets.homeManager = {config, ...}: {
     sops = {
       secrets = {
@@ -61,8 +59,6 @@
     };
   };
 in {
-  inherit flake-file;
-
   dev.ai = <den.lib.parametric> {
     includes = [
       (claude-code "claude-code-bun")

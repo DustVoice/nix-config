@@ -1,12 +1,4 @@
 {inputs, ...}: let
-  flake-file.inputs = {
-    jjui = {
-      url = "github:idursun/jjui";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "nixpkgs";
-    };
-  };
-
   git.homeManager = {
     # Dependencies
     programs = {
@@ -95,8 +87,6 @@
     };
   };
 in {
-  inherit flake-file;
-
   dev.vcs.includes = [
     git
     jujutsu

@@ -3,8 +3,6 @@
   inputs,
   ...
 }: let
-  flake-file.inputs.sops-nix.url = "github:Mic92/sops-nix";
-
   sops-nix.homeManager = {
     config,
     pkgs,
@@ -62,8 +60,6 @@
     };
   };
 in {
-  inherit flake-file;
-
   dev.secrets = <den.lib.parametric> {
     includes = [
       ({user, ...}: sops-nix)
